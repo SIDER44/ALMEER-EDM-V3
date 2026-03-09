@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ALMEER EDM</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<canvas id="particleCanvas"></canvas>
+<div class="background"></div>
+
+<header>
+<h1>ALMEER EDM</h1>
+<p>Feel The Beat 🔥</p>
+<input id="searchBox" placeholder="Search EDM songs...">
+<button onclick="search()">Search</button>
+</header>
+
+<section id="artists">
+<h2>Top EDM Artists</h2>
+<div class="artist">Martin Garrix</div>
+<div class="artist">Alan Walker</div>
+<div class="artist">Avicii</div>
+<div class="artist">Marshmello</div>
+</section>
+
+<section>
+<h2>Trending Songs</h2>
+<div id="trending"></div>
+</section>
+
+<section>
+<h2>Search Results</h2>
+<div id="results"></div>
+</section>
+
+<footer>
+<div id="player">
+<img id="cover">
+<div>
+<h3 id="title">ALMEER EDM Player</h3>
+<audio id="audio" controls></audio>
+<canvas id="visualizerCanvas"></canvas>
+</div>
+</div>
+</footer>
+
+<script src="/js/script.js"></script>
+<script src="/js/particles.js"></script>
+<script src="/js/visualizer.js"></script>
+
+</body>
+  </html>
