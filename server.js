@@ -3,21 +3,11 @@ const axios = require("axios");
 const cors = require("cors");
 const path = require("path");
 const ytdl = require("ytdl-core");
-const { MongoClient } = require("mongodb");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
-
-const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017";
-const client = new MongoClient(MONGO_URI);
-let db;
-
-client.connect().then(()=>{
-  db = client.db("almeer_edm_v3");
-  console.log("Connected to MongoDB");
-}).catch(console.error);
 
 app.get("/", (req,res)=>{
   res.sendFile(path.join(__dirname,"views/index.html"));
@@ -35,6 +25,32 @@ app.get("/api/search", async (req,res)=>{
 /* TRENDING */
 app.get("/api/trending", async (req,res)=>{
   try{
+    const deezer = await axios.get("https://api.deezer.com/chart");
+    res.json(deezer.data.tracks.data.slice(0,10));
+  } catch(e){ res.json({error:"failed"}); }
+});
+
+/* ARTIST */
+app.get("/api/artist/:name", async (req,res)=>{
+  const name = req.params.name;
+  try{
+    const artist = await axios.get(`https://itunes.apple.com/search?term=${name}&entity=song&limit=10`);
+    res.json(artist.data.results);
+  } catch(e){ res.json({error:"artist failed"}); }
+});
+
+/* YOUTUBE DOWNLOADER */
+app.get("/api/youtube", async (req,res)=>{
+  const url = req.query.url;
+  if(!url) return res.status(400).send("No URL provided");
+  try{
+    res.header("Content-Disposition","attachment; filename=track.mp3");
+    ytdl(url,{filter:"audioonly"}).pipe(res);
+  }catch(e){ res.status(500).send("Download failed"); }
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, ()=>console.log("ALMEER EDM v3 server running on port",PORT));  try{
     const deezer = await axios.get("https://api.deezer.com/chart");
     res.json(deezer.data.tracks.data.slice(0,10));
   } catch(e){ res.json({error:"failed"}); }
