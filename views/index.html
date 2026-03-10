@@ -1,53 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ALMEER EDM</title>
+
 <link rel="stylesheet" href="/css/style.css">
+
 </head>
+
 <body>
 
-<canvas id="particleCanvas"></canvas>
-<div class="background"></div>
+<div class="app">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+<h2 class="logo">ALMEER EDM</h2>
+
+<ul>
+
+<li onclick="showHome()">🏠 Home</li>
+
+<li onclick="loadTrending()">🔥 Trending</li>
+
+<li onclick="showArtists()">🎧 Artists</li>
+
+<li onclick="showPlaylists()">📂 Playlists</li>
+
+<li onclick="showFavorites()">❤️ Favorites</li>
+
+<li onclick="showRadio()">📡 EDM Radio</li>
+
+</ul>
+
+</div>
+
+<!-- MAIN CONTENT -->
+
+<div class="main">
 
 <header>
-<h1>ALMEER EDM</h1>
-<p>Feel The Beat 🔥</p>
+
 <input id="searchBox" placeholder="Search EDM songs...">
 <button onclick="search()">Search</button>
+
 </header>
 
-<section id="artists">
-<h2>Top EDM Artists</h2>
-<div class="artist">Martin Garrix</div>
-<div class="artist">Alan Walker</div>
-<div class="artist">Avicii</div>
-<div class="artist">Marshmello</div>
-</section>
+<!-- FEATURED -->
 
 <section>
+
+<h2>Featured EDM</h2>
+
+<div class="card-grid">
+
+<div class="music-card">
+<img src="https://i.scdn.co/image/ab6761610000e5eb7e5d1d43f8f3a3d8e1b3d8b2">
+<p>Martin Garrix</p>
+</div>
+
+<div class="music-card">
+<img src="https://i.scdn.co/image/ab6761610000e5eb4d6a9f4c8c0b8b6f2f8d7f92">
+<p>Alan Walker</p>
+</div>
+
+<div class="music-card">
+<img src="https://i.scdn.co/image/ab6761610000e5ebd3b52b7a0a9c7d2a6e8b9c6f">
+<p>Avicii</p>
+</div>
+
+<div class="music-card">
+<img src="https://i.scdn.co/image/ab6761610000e5eb5d6c6a0c8a5d9c9e6d7a8c9b">
+<p>Marshmello</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TRENDING -->
+
+<section>
+
 <h2>Trending Songs</h2>
-<div id="trending"></div>
+
+<div id="trending" class="song-grid"></div>
+
 </section>
 
+<!-- SEARCH RESULTS -->
+
 <section>
+
 <h2>Search Results</h2>
-<div id="results"></div>
+
+<div id="results" class="song-grid"></div>
+
 </section>
+
+<!-- FAVORITES -->
+
+<section>
+
+<h2>Your Favorites</h2>
+
+<div id="favorites" class="song-grid"></div>
+
+</section>
+
+<!-- PLAYLISTS -->
+
+<section>
+
+<h2>Your Playlists</h2>
+
+<div id="playlists" class="song-grid"></div>
+
+</section>
+
+</div>
+
+</div>
+
+<!-- MUSIC PLAYER -->
 
 <footer>
-<div id="player">
+
+<div class="player">
+
 <img id="cover">
+
 <div>
+
 <h3 id="title">ALMEER EDM Player</h3>
+
 <audio id="audio" controls></audio>
-<canvas id="visualizerCanvas"></canvas>
+
 </div>
+
 </div>
+
 </footer>
 
 <script src="/js/script.js"></script>
-<script src="/js/particles.js"></script>
-<script src="/js/visualizer.js"></script>
 
 </body>
+
   </html>
