@@ -1,7 +1,7 @@
 {
   "name": "almeer-edm-v3",
   "version": "1.0.0",
-  "description": "ALMEER EDM professional music platform",
+  "description": "ALMEER EDM professional music platform without DB",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -13,7 +13,6 @@
     "axios": "^1.6.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "ytdl-core": "^4.11.0",
-    "mongodb": "^6.11.0"
+    "ytdl-core": "^4.11.0"
   }
 }
